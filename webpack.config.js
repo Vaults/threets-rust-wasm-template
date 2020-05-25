@@ -3,7 +3,11 @@ const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin');
 
 module.exports = {
     devtool: "inline-source-map",
-    entry: "./src/ts/index.ts",
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true
+    },
+    entry: "./src/ts/bootstrap.ts",
     mode: "none",
     module: {
         rules: [
@@ -25,6 +29,7 @@ module.exports = {
     plugins: [
         new WasmPackPlugin({
             crateDirectory: path.resolve(__dirname, "src/rust"),
+            forceWatch: true,
             outDir: "target/pkg"
         }),
     ],

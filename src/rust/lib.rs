@@ -9,7 +9,7 @@ use wasm_bindgen::prelude::*;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-pub fn hello_world() -> i32 {
-    42
+pub fn get_color() -> String {
+    "#F5D742".to_string()
 }
 
