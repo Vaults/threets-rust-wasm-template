@@ -1,5 +1,5 @@
 [package]
-name = "rust-wasm"
+name = "rust_wasm"
 version = "0.0.1"
 authors = ["Marcel Visser <marcel1337@hotmail.com>"]
 edition = "2018"
@@ -33,4 +33,4 @@ wasm-bindgen-test = "0.2"
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.
-opt-level = "s"
+opt-level = "z"

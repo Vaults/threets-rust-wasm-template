@@ -5,16 +5,23 @@
   "main": "index.js",
   "scripts": {
     "build": "cp -r src/html/* dist; webpack",
-    "watch": "cp -r src/html/* dist; webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cp -r src/html/* dist; webpack-dev-server",
+    "test": "cargo test && TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' $(npm bin)/mocha -r ts-node/register tests/ts/**/*.test.ts",
+    "integration-test": "wasm-pack test --firefox --headless"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
     "@wasm-tool/wasm-pack-plugin": "^1.3.1",
+    "chai": "^4.2.0",
     "eslint": "^7.1.0",
+    "esm": "^3.2.25",
+    "mocha": "^7.2.0",
     "three": "^0.116.1",
     "ts-loader": "^7.0.5",
+    "ts-node": "^8.10.1",
     "tslint": "^6.1.2",
     "typescript": "^3.9.3",
     "watch": "^1.0.2",

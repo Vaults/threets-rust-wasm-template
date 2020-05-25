@@ -20,7 +20,7 @@
   },
   "include": [
     "src/ts/**/*",
-    "test/ts/**/*"
+    "tests/ts/**/*"
   ],
-  "lib": ["esnext"]
+  "lib": ["dom", "esnext"]
 }
