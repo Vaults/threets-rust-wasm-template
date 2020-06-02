@@ -4,8 +4,9 @@
   "description": "Template for Three.js, Typescript & Rust-WASM interaction",
   "main": "index.js",
   "scripts": {
-    "build": "cp -r src/html/* dist; webpack",
-    "start": "cp -r src/html/* dist; webpack-dev-server",
+    "pre-build": "mkdir -p target/pkg; mkdir -p dist; cp -r src/html/* dist",
+    "build": "npm run pre-build; webpack",
+    "start": "npm run pre-build; webpack-dev-server",
     "test": "cargo test && TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' $(npm bin)/mocha -r ts-node/register tests/ts/**/*.test.ts",
     "integration-test": "wasm-pack test --firefox --headless"
   },
